@@ -17,6 +17,7 @@
         android:text="Explore"
         android:textColor="@android:color/black"
         android:textSize="26sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,13 +49,13 @@
     ]]>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/bottomNav"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@color/colorPrimary"
-        app:menu="@menu/bottom_nav_menu"
+        android:background="@color/colorAccent"
         app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/bottom_nav_menu"
 
         />
 

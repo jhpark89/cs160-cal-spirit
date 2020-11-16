@@ -1,10 +1,15 @@
 package com.example.finalprojectcs160;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
@@ -25,6 +30,30 @@ public class ExploreActivity extends AppCompatActivity {
 //                        .setAction("Action", null).show();
 //            }
 //        });
+
+        BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
+        // set the selected opt
+        bottomNav.setSelectedItemId(R.id.botnav_explore);
+        bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.botnav_explore:
+                        return true;
+                    case R.id.botnav_search:
+                        startActivity(new Intent(getApplicationContext(), SearchActivity.class));
+                        overridePendingTransition(0, 0);
+                        return true;
+//                    case R.id.botnav_favorites:
+//                        startActivity(new Intent(getApplicationContext(), FavoritesActivity.class));
+//                        overridePendingTransition(0, 0);
+//                        return true;
+                }
+                return false;
+            }
+        });
+
+
         createRecyclerViewClothing();
         createRecyclerViewBath();
         createRecyclerViewRestaurant();
@@ -96,5 +125,6 @@ public class ExploreActivity extends AppCompatActivity {
                 false));
 
     }
+
 
 }
