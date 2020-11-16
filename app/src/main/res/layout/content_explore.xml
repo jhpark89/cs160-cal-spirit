@@ -20,16 +20,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="399dp"
-        android:layout_height="277dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/clothing_title" />
-
     <TextView
         android:id="@+id/search_bar_title"
         android:layout_width="wrap_content"
@@ -39,18 +29,9 @@
         android:fontFamily="@font/work_sans_medium"
         android:text="Search Nook and Cranny"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/explore_title" />
+        app:layout_constraintTop_toBottomOf="@+id/explore_title" /><![CDATA[
 
-    <TextView
-        android:id="@+id/clothing_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="13dp"
-        android:fontFamily="@font/work_sans_medium"
-        android:text="Clothing and Accessories"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_bar_title" /><![CDATA[
+
 
     android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
@@ -61,6 +42,8 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
 
     ]]>
 
@@ -75,7 +58,71 @@
 
         />
 
-<!--    app:itemIconTint="@color/bottom_nav_item_selector"-->
+    <ScrollView
+        android:layout_width="406dp"
+        android:layout_height="481dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_bar_title">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/clothing_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="13dp"
+                android:fontFamily="@font/work_sans_medium"
+                android:text="Clothing and Accessories"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search_bar_title" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_clothing"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/clothing_title" />
+
+            <TextView
+                android:id="@+id/bath_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/work_sans_medium"
+                android:text="Bath and Body" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_bath"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/restaurant_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="30dp"
+                android:text="Restaurants" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_restaurant"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!--    app:itemIconTint="@color/bottom_nav_item_selector"-->
 <!--    app:itemTextColor="@color/bottom_nav_item_selector"-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

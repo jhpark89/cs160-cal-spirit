@@ -12,6 +12,9 @@ import android.widget.Toast;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+
 import java.util.ArrayList;
 
 //import android.support.v7.widget.RecyclerView;
@@ -47,7 +50,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         Log.d(TAG, "onBindViewHolder: called.");
-
+        System.out.println(mImageUrls.get(position));
+        Glide.with(mContext).load(mImageUrls.get(position))
+                .apply(new RequestOptions().override(200, 200)).into(holder.image);
 
         holder.name.setText(mNames.get(position));
         holder.distance.setText(mDist.get(position));
