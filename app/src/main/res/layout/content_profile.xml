@@ -6,13 +6,13 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <TextView
-        android:id="@+id/search_title"
+        android:id="@+id/profile_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="26dp"
         android:fontFamily="@font/work_sans_medium"
-        android:text="Search"
+        android:text="Profile"
         android:textColor="@android:color/black"
         android:textSize="36sp"
         android:textStyle="bold"
@@ -29,4 +29,5 @@
         app:menu="@menu/bottom_nav_menu"
 
         />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

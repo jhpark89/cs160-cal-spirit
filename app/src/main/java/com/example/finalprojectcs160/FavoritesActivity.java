@@ -14,12 +14,12 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
-public class SearchActivity extends AppCompatActivity {
+public class FavoritesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
+        setContentView(R.layout.activity_favorites);
 //        Toolbar toolbar = findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 //
@@ -34,7 +34,7 @@ public class SearchActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
         // set the selected opt
-        bottomNav.setSelectedItemId(R.id.botnav_search);
+        bottomNav.setSelectedItemId(R.id.botnav_favorites);
         bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -44,10 +44,10 @@ public class SearchActivity extends AppCompatActivity {
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.botnav_search:
+                        startActivity(new Intent(getApplicationContext(), SearchActivity.class));
+                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.botnav_favorites:
-                        startActivity(new Intent(getApplicationContext(), FavoritesActivity.class));
-                        overridePendingTransition(0, 0);
                         return true;
                     case R.id.botnav_profile:
                         startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
