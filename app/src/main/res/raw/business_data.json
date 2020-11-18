@@ -1,0 +1,48 @@
+[
+  {
+    "b_id" : 0,
+    "name" : "Test Business A",
+    "desc" : "Founded in 1988. Note that causes could be in an array denoting truthiness.",
+    "address" : "123 Example Street",
+    "causes" : [
+      true, true, true, true, true, true
+    ]
+  },
+  {
+    "b_id" : 1,
+    "name" : "Test Business B",
+    "desc" : "Founded in 1988. Note that causes could be in an array denoting truthiness.",
+    "address" : "123 Example Street",
+    "causes" : [
+      true, true, true, true, true, true
+    ]
+  },
+  {
+    "b_id" : 2,
+    "name" : "Test Business C",
+    "desc" : "Founded in 1988. Note that causes could be in an array denoting truthiness.",
+    "address" : "123 Example Street",
+    "causes" : [
+      true, true, true, true, true, true
+    ],
+    "img" : "N/A"
+  },
+  {
+    "b_id" : 3,
+    "name" : "Test Business D",
+    "desc" : "Founded in 1988. Note that causes could be in an array denoting truthiness.",
+    "address" : "123 Example Street",
+    "causes" : [
+      true, true, true, true, true, true
+    ]
+  },
+  {
+    "b_id" : 4,
+    "name" : "Test Business E",
+    "desc" : "Founded in 1988. Note that causes could be in an array denoting truthiness.",
+    "address" : "123 Example Street",
+    "causes" : [
+      true, true, true, true, true, true
+    ]
+  }
+]
