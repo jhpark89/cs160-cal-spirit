@@ -13,4 +13,13 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_favorites">FavoritesActivity</string>
     <string name="title_activity_profile">ProfileActivity</string>
+
+    <!-- Text strings -->
+    <string name="category_groceries">Groceries</string>
+    <string name="category_clothing">Clothing &amp; Accessories</string>
+    <string name="category_bathbody">Bath &amp; Body</string>
+    <string name="category_restaurants">Restaurants</string>
+    <string name="category_services">Services</string>
+    <string name="category_other">Other</string>
+
 </resources>
