@@ -25,12 +25,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorNavbar"
-        app:labelVisibilityMode="labeled"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/bottom_nav_menu"
         app:itemIconTint="@color/colorBlack"
         app:itemTextColor="@color/colorBlack"
-        />
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
 
     <ScrollView
         android:id="@+id/scrollView3"
@@ -241,12 +241,12 @@
         android:id="@+id/categories_title"
         android:layout_width="205dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="14dp"
         android:fontFamily="@font/work_sans_medium"
         android:text="Categories"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView3"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_title" />
 
     <TextView
         android:id="@+id/causes_title"
