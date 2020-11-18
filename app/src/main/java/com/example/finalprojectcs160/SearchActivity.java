@@ -3,7 +3,9 @@ package com.example.finalprojectcs160;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -80,5 +82,15 @@ public class SearchActivity extends AppCompatActivity {
                 return false;
             }
         });
+        TextView causes = findViewById(R.id.causes_title);
+        causes.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SearchActivity.this, SearchCauses.class);
+                startActivity(intent);
+            }
+        });
     }
+
 }
