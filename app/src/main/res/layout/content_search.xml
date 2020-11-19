@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="650dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="92dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_title">
 
@@ -90,8 +90,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:layout_marginEnd="52dp"
-                    android:autoSizeMinTextSize="14sp"
                     android:autoSizeMaxTextSize="14sp"
+                    android:autoSizeMinTextSize="14sp"
                     android:fontFamily="@font/work_sans_medium"
                     android:scrollHorizontally="false"
                     android:text="@string/category_clothing"
@@ -254,25 +254,25 @@
         android:id="@+id/categories_title"
         android:layout_width="205dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/work_sans_medium"
         android:text="Categories"
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+        app:layout_constraintTop_toBottomOf="@+id/searchBar_search" />
 
     <TextView
         android:id="@+id/causes_title"
         android:layout_width="205dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/work_sans_medium"
         android:text="Causes"
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+        app:layout_constraintTop_toBottomOf="@+id/searchBar_search" />
 
     <ImageView
         android:id="@+id/imageView7"
@@ -283,7 +283,7 @@
         app:srcCompat="@drawable/orange_rect" />
 
     <SearchView
-        android:id="@+id/searchView"
+        android:id="@+id/searchBar_search"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"

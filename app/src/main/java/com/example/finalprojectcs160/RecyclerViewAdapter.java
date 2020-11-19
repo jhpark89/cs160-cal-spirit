@@ -32,12 +32,22 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ArrayList<String> mNames = new ArrayList<>();
     private ArrayList<String> mDist = new ArrayList<>();
     private ArrayList<String> mImageUrls = new ArrayList<>();
+    private ArrayList<Boolean> mIsUrl = new ArrayList<>();
     private Context mContext;
+
+    public RecyclerViewAdapter(Context context, ArrayList<String> names, ArrayList<String> dist, ArrayList<String> imageUrls, ArrayList<Boolean> isURL) {
+        mNames = names;
+        mDist = dist;
+        mImageUrls = imageUrls;
+        mIsUrl = isURL;
+        mContext = context;
+    }
 
     public RecyclerViewAdapter(Context context, ArrayList<String> names, ArrayList<String> dist, ArrayList<String> imageUrls) {
         mNames = names;
         mDist = dist;
         mImageUrls = imageUrls;
+        mIsUrl = null;
         mContext = context;
     }
 
@@ -51,8 +61,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(ViewHolder holder, final int position) {
         Log.d(TAG, "onBindViewHolder: called.");
         System.out.println(mImageUrls.get(position));
+        if (mIsUrl != null && !mIsUrl.get(position)) {
+//            holder.image.setImageResource(mImageUrls.get(position));
+            System.out.println("TODO: need to set images from local resources");
+        } else {
         Glide.with(mContext).load(mImageUrls.get(position))
                 .apply(new RequestOptions().override(200, 200)).into(holder.image);
+        }
 
         holder.name.setText(mNames.get(position));
         holder.distance.setText(mDist.get(position));

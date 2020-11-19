@@ -10,10 +10,19 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.gson.internal.LinkedTreeMap;
+import com.google.gson.reflect.TypeToken;
 
+import org.json.JSONObject;
+
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class ExploreActivity extends AppCompatActivity {
+
+    private List<Business> businesses;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +39,12 @@ public class ExploreActivity extends AppCompatActivity {
 //                        .setAction("Action", null).show();
 //            }
 //        });
+
+        JSONResourceReader reader = new JSONResourceReader(getResources(), R.raw.business_data);
+        Type listBusinesses = new TypeToken<ArrayList<Business>>() {}.getType();
+        businesses = reader.constructUsingGson(listBusinesses);
+        System.out.println(businesses.get(0).getName());
+
 
         BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
         // set the selected opt
@@ -68,16 +83,25 @@ public class ExploreActivity extends AppCompatActivity {
         ArrayList<String> dist = new ArrayList<>();
         ArrayList<String> images = new ArrayList<>();
 
-        images.add("https://i.imgur.com/ZcLLrkY.jpg");
-        names.add("clothing");
-        dist.add("10000 miles");
+        for (int i = 0; i < 5; i++) {
+            String thumbnail = businesses.get(0).getImg();
+            String name = businesses.get(0).getName();
 
-        images.add("https://i.imgur.com/ZcLLrkY.jpg");
-        names.add("clothing 2");
-        dist.add("1 miles");
-        images.add("https://i.imgur.com/ZcLLrkY.jpg");
-        names.add("clothing 3");
-        dist.add("1 miles");
+            images.add(thumbnail);
+            names.add(name);
+            dist.add("100 miles");
+        }
+
+//        images.add("https://i.imgur.com/ZcLLrkY.jpg");
+//        names.add("clothing");
+//        dist.add("10000 miles");
+//
+//        images.add("https://i.imgur.com/ZcLLrkY.jpg");
+//        names.add("clothing 2");
+//        dist.add("1 miles");
+//        images.add("https://i.imgur.com/ZcLLrkY.jpg");
+//        names.add("clothing 3");
+//        dist.add("1 miles");
         RecyclerView clothing = findViewById(R.id.recycler_view_clothing);
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, names, dist, images);
         clothing.setAdapter(adapter);
