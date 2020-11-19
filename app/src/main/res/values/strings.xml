@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Final Project CS160</string>
+    <string name="app_name">Nook &amp; Cranny</string>
     <string name="title_activity_explore">ExploreActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -16,10 +16,11 @@
 
     <!-- Text strings -->
     <string name="category_groceries">Groceries</string>
-    <string name="category_clothing">Clothing &amp; Accessories</string>
+    <string name="category_clothing">Clothing &amp;\nAccessories</string>
     <string name="category_bathbody">Bath &amp; Body</string>
     <string name="category_restaurants">Restaurants</string>
     <string name="category_services">Services</string>
     <string name="category_other">Other</string>
+    <string name="search_hint">Search Nook &amp; Cranny...</string>
 
 </resources>
