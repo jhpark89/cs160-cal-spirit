@@ -55,20 +55,11 @@ public class SearchActivity extends AppCompatActivity {
 //        Glide.with(this).load("https://i.imgur.com/ZcLLrkY.jpg")
 //                .apply(new RequestOptions().override(300, 300)).into(category_im_8);
 
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//
-//        FloatingActionButton fab = findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
+        createBottomNavigationBar();
+    }
 
+    private void createBottomNavigationBar() {
         BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
-        // set the selected opt
         bottomNav.setSelectedItemId(R.id.botnav_search);
         bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

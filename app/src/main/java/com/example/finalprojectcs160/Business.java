@@ -1,3 +1,7 @@
+/**
+ * Object implementation of business data
+ */
+
 package com.example.finalprojectcs160;
 
 public class Business {

@@ -10,14 +10,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
-
-import org.json.JSONObject;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class ExploreActivity extends AppCompatActivity {
@@ -28,26 +24,20 @@ public class ExploreActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_explore);
-//        Toolbar toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
 
-//        FloatingActionButton fab = findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-
+        // Create a JSON reader to get data from local database and turn it into list of businesses
         JSONResourceReader reader = new JSONResourceReader(getResources(), R.raw.business_data);
         Type listBusinesses = new TypeToken<ArrayList<Business>>() {}.getType();
         businesses = reader.constructUsingGson(listBusinesses);
-        System.out.println(businesses.get(0).getName());
 
+        createBottomNavigationBar();
+        createRecyclerViewClothing();
+        createRecyclerViewBath();
+        createRecyclerViewRestaurant();
+    }
 
+    private void createBottomNavigationBar() {
         BottomNavigationView bottomNav = findViewById(R.id.bottomNav);
-        // set the selected opt
         bottomNav.setSelectedItemId(R.id.botnav_explore);
         bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -71,11 +61,6 @@ public class ExploreActivity extends AppCompatActivity {
                 return false;
             }
         });
-
-
-        createRecyclerViewClothing();
-        createRecyclerViewBath();
-        createRecyclerViewRestaurant();
     }
 
     private void createRecyclerViewClothing() {

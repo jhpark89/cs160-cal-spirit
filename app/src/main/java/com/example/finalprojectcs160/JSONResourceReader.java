@@ -1,3 +1,6 @@
+/**
+ * Code courtesy of @jwir3. Source: https://stackoverflow.com/questions/6349759/using-json-file-in-android-app-resources
+ */
 package com.example.finalprojectcs160;
 
 import java.io.*;
@@ -7,8 +10,6 @@ import android.content.res.Resources;
 import android.util.Log;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 
 /**
  * An object for reading from a JSON resource file and constructing an object from that resource file using Gson.
@@ -54,11 +55,11 @@ public class JSONResourceReader {
     }
 
     /**
-     * Build an object from the specified JSON resource using Gson.
+     * Build an object from the saved JSON string using Gson.
      *
      * @param type The type of the object to build.
      *
-     * @return An object of type T, with member fields populated using Gson.
+     * @return An object of type T.
      */
     public <T> T constructUsingGson(Type type) {
         Gson gson = new Gson();
