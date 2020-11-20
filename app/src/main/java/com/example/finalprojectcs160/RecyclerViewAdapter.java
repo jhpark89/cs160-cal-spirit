@@ -1,6 +1,7 @@
 package com.example.finalprojectcs160;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,8 +62,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(ViewHolder holder, final int position) {
         Log.d(TAG, "onBindViewHolder: called.");
         System.out.println(mImageUrls.get(position));
+        System.out.println(mIsUrl);
         if (mIsUrl != null && !mIsUrl.get(position)) {
-//            holder.image.setImageResource(mImageUrls.get(position));
+            Drawable img = this.mContext.getResources().getDrawable(Integer.parseInt(mImageUrls.get(position)), null);
+            holder.image.setImageDrawable(img);
             System.out.println("TODO: need to set images from local resources");
         } else {
         Glide.with(mContext).load(mImageUrls.get(position))

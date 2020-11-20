@@ -22,5 +22,6 @@
     <string name="category_services">Services</string>
     <string name="category_other">Other</string>
     <string name="search_hint">Search Nook &amp; Cranny...</string>
+    <string name="title_activity_search_results">SearchResults</string>
 
 </resources>

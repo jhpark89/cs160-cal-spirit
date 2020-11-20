@@ -24,7 +24,6 @@ public class ExploreActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_explore);
-
         // Create a JSON reader to get data from local database and turn it into list of businesses
         JSONResourceReader reader = new JSONResourceReader(getResources(), R.raw.business_data);
         Type listBusinesses = new TypeToken<ArrayList<Business>>() {}.getType();
@@ -67,7 +66,7 @@ public class ExploreActivity extends AppCompatActivity {
         ArrayList<String> names = new ArrayList<>();
         ArrayList<String> dist = new ArrayList<>();
         ArrayList<String> images = new ArrayList<>();
-
+        ArrayList<Boolean> isURL = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             String thumbnail = businesses.get(0).getImg();
             String name = businesses.get(0).getName();
@@ -75,6 +74,7 @@ public class ExploreActivity extends AppCompatActivity {
             images.add(thumbnail);
             names.add(name);
             dist.add("100 miles");
+            isURL.add(false);
         }
 
 //        images.add("https://i.imgur.com/ZcLLrkY.jpg");
@@ -88,11 +88,10 @@ public class ExploreActivity extends AppCompatActivity {
 //        names.add("clothing 3");
 //        dist.add("1 miles");
         RecyclerView clothing = findViewById(R.id.recycler_view_clothing);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, names, dist, images);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, names, dist, images, isURL);
         clothing.setAdapter(adapter);
         clothing.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,
                 false));
-
     }
     private void createRecyclerViewBath() {
         ArrayList<String> names = new ArrayList<>();
