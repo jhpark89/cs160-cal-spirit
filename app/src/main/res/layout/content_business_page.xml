@@ -62,23 +62,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <ScrollView
-                    android:id="@+id/tag_scrollview"
-                    android:layout_width="414dp"
-                    android:layout_height="38dp"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView3">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical" />
-                </ScrollView>
-
                 <ImageView
-                    android:id="@+id/bus_im1"
+                    android:id="@+id/bus_im"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -89,34 +74,55 @@
                     app:srcCompat="@drawable/business_stockimg_14karat" />
 
                 <TextView
-                    android:id="@+id/bus_title1"
+                    android:id="@+id/bus_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="68dp"
                     android:layout_marginTop="8dp"
                     android:text="TextView"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/bus_im1" />
+                    app:layout_constraintTop_toBottomOf="@+id/bus_im" />
 
                 <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="8dp"
-                    android:text="TextView"
-                    app:layout_constraintStart_toEndOf="@+id/textView3"
-                    app:layout_constraintTop_toBottomOf="@+id/bus_title1" />
-
-                <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/bus_info"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="68dp"
                     android:layout_marginTop="8dp"
                     android:text="TextView"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/bus_title1" />
+                    app:layout_constraintTop_toBottomOf="@+id/bus_title" />
+
+                <TextView
+                    android:id="@+id/bus_tags"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="68dp"
+                    android:layout_marginTop="8dp"
+                    android:text="TextView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/bus_info" />
+
+                <TextView
+                    android:id="@+id/bus_times"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="68dp"
+                    android:layout_marginTop="8dp"
+                    android:text="TextView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/bus_tags" />
+
+                <TextView
+                    android:id="@+id/bus_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="68dp"
+                    android:layout_marginTop="8dp"
+                    android:text="TextView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/bus_times" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
