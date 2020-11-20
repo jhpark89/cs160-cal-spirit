@@ -77,16 +77,6 @@ public class ExploreActivity extends AppCompatActivity {
             isURL.add(false);
         }
 
-//        images.add("https://i.imgur.com/ZcLLrkY.jpg");
-//        names.add("clothing");
-//        dist.add("10000 miles");
-//
-//        images.add("https://i.imgur.com/ZcLLrkY.jpg");
-//        names.add("clothing 2");
-//        dist.add("1 miles");
-//        images.add("https://i.imgur.com/ZcLLrkY.jpg");
-//        names.add("clothing 3");
-//        dist.add("1 miles");
         RecyclerView clothing = findViewById(R.id.recycler_view_clothing);
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, names, dist, images, isURL);
         clothing.setAdapter(adapter);

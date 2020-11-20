@@ -4,30 +4,32 @@
 
 package com.example.finalprojectcs160;
 
+import androidx.annotation.NonNull;
+
 public class Business {
-    private int id;
+    private int b_id;
     private String name;
     private String desc;
     private String address;
     private boolean[] causes;
     private String img;
     private boolean img_islink;
-    private String[] tags;
+    private String[] search_tags;
 
 
-    public Business (int id, String name, String desc, String address, boolean[] causes, String img, boolean img_islink, String[] tags) {
-        this.id = id;
+    public Business (int b_id, String name, String desc, String address, boolean[] causes, String img, boolean img_islink, String[] search_tags) {
+        this.b_id = b_id;
         this.name = name;
         this.desc = desc;
         this.address = address;
         this.causes = causes;
         this.img = img;
         this.img_islink = img_islink;
-        this.tags = tags;
+        this.search_tags = search_tags;
     }
 
     public int getId() {
-        return id;
+        return b_id;
     }
 
     public String getName() {
@@ -55,6 +57,12 @@ public class Business {
     }
 
     public String[] getTags() {
-        return tags;
+        return search_tags;
     };
+
+    @NonNull
+    @Override
+    public String toString() {
+        return this.b_id + " - " + this.name;
+    }
 }

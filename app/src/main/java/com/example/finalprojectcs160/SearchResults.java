@@ -24,8 +24,10 @@ public class SearchResults extends AppCompatActivity {
         Type listBusinesses = new TypeToken<ArrayList<Business>>() {}.getType();
         businesses = reader.constructUsingGson(listBusinesses);
         List<Integer> matching_ids = new ArrayList<>();
+        System.out.println(businesses);
         for (int i = 0; i < businesses.size(); i++) {
             Business bus = businesses.get(i);
+            System.out.println(bus.getTags());
                 for (String tag: bus.getTags()) {
                     System.out.println(tag);
                     if (tag.contains(query)) {
