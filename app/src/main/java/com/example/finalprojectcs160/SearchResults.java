@@ -27,7 +27,6 @@ public class SearchResults extends AppCompatActivity {
         System.out.println(businesses);
         for (int i = 0; i < businesses.size(); i++) {
             Business bus = businesses.get(i);
-            System.out.println(bus.getTags());
                 for (String tag: bus.getTags()) {
                     System.out.println(tag);
                     if (tag.contains(query)) {

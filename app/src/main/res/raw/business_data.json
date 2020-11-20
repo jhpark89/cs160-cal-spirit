@@ -21,7 +21,7 @@
       ],
       "img" : "@drawable/business_stockimg_soap",
       "img_islink" : false,
-      "search_tags" : ["Sophie's Soaps", "shampoo", "body"]
+      "search_tags" : ["Sophie's Soaps", "shampoo", "body", "soaps"]
     },
     {
       "b_id" : 2,
