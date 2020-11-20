@@ -12,9 +12,10 @@ public class Business {
     private boolean[] causes;
     private String img;
     private boolean img_islink;
+    private String[] tags;
 
 
-    public Business (int id, String name, String desc, String address, boolean[] causes, String img, boolean img_islink) {
+    public Business (int id, String name, String desc, String address, boolean[] causes, String img, boolean img_islink, String[] tags) {
         this.id = id;
         this.name = name;
         this.desc = desc;
@@ -22,6 +23,7 @@ public class Business {
         this.causes = causes;
         this.img = img;
         this.img_islink = img_islink;
+        this.tags = tags;
     }
 
     public int getId() {
@@ -51,4 +53,8 @@ public class Business {
     public boolean isImg_islink() {
         return img_islink;
     }
+
+    public String[] getTags() {
+        return tags;
+    };
 }

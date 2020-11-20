@@ -8,7 +8,8 @@
         true, true, true, true, true, true
       ],
       "img" : "2131230816",
-      "img_islink" : false
+      "img_islink" : false,
+      "search_tags" : ["14 Karat"]
     },
     {
       "b_id" : 1,
@@ -19,7 +20,8 @@
         true, true, true, true, true, true
       ],
       "img" : "@drawable/business_stockimg_soap",
-      "img_islink" : false
+      "img_islink" : false,
+      "search_tags" : ["Sophie's Soaps", "shampoo", "body"]
     },
     {
       "b_id" : 2,
@@ -30,7 +32,8 @@
         true, true, true, true, true, true
       ],
       "img" : "some link lmao",
-      "img_islink" : true
+      "img_islink" : true,
+      "search_tags" : ["Test Business C"]
     },
     {
       "b_id" : 3,
@@ -41,18 +44,21 @@
         true, true, true, true, true, true
       ],
       "img" : "some link lmao",
-      "img_islink" : true
+      "img_islink" : true,
+      "search_tags" : ["Test Business D"]
+
     },
     {
-    "b_id" : 4,
-    "name" : "Test Business E",
-    "desc" : "Founded in 1988. Note that causes could be in an array denoting truthiness.",
-    "address" : "123 Example Street",
-    "causes" : [
-      true, true, true, true, true, true
-    ],
-    "img" : "some link lmao",
-    "img_islink" : true
-  }
+      "b_id" : 4,
+      "name" : "Test Business E",
+      "desc" : "Founded in 1988. Note that causes could be in an array denoting truthiness.",
+      "address" : "123 Example Street",
+      "causes" : [
+        true, true, true, true, true, true
+      ],
+      "img" : "some link lmao",
+      "img_islink" : true,
+      "search_tags" : ["Test Business E"]
+    }
 ]
 

@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class SearchActivity extends AppCompatActivity {
-
+    final static public String query_string = "com.example.finalprojectcs160.SearchActivity.query_string";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +56,21 @@ public class SearchActivity extends AppCompatActivity {
 //                .apply(new RequestOptions().override(300, 300)).into(category_im_8);
 
         createBottomNavigationBar();
+        SearchView searchbar = findViewById(R.id.searchBar_search);
+        searchbar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Intent intent = new Intent(SearchActivity.this, SearchResults.class);
+                intent.putExtra(query_string, query);
+                startActivity(intent);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
     }
 
     private void createBottomNavigationBar() {
