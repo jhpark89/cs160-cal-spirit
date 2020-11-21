@@ -12,9 +12,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:onClick="onClickBack"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/abc_vector_test" />
+        app:srcCompat="@drawable/ic_round_arrow_back_ios_24" />
 
     <SearchView
         android:id="@+id/searchView"
@@ -79,7 +80,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="68dp"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="@font/work_sans_medium"
                     android:text="TextView"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/bus_im" />
 
@@ -89,6 +93,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="68dp"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="@font/work_sans_medium"
                     android:text="TextView"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/bus_title" />
@@ -99,6 +104,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="68dp"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="@font/work_sans_medium"
                     android:text="TextView"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/bus_info" />
@@ -109,17 +115,21 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="68dp"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="@font/work_sans_medium"
                     android:text="TextView"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/bus_tags" />
 
                 <TextView
                     android:id="@+id/bus_desc"
-                    android:layout_width="wrap_content"
+                    android:layout_width="268dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="68dp"
                     android:layout_marginTop="8dp"
+                    android:layout_marginEnd="68dp"
+                    android:fontFamily="@font/work_sans_medium"
                     android:text="TextView"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/bus_times" />
 

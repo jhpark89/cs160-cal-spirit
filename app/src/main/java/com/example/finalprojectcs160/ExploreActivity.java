@@ -3,6 +3,7 @@ package com.example.finalprojectcs160;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
@@ -19,6 +21,7 @@ import java.util.List;
 public class ExploreActivity extends AppCompatActivity {
 
     private List<Business> businesses;
+    public static final String BUSINESS = "com.example.prog01appv2.business";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,6 +129,21 @@ public class ExploreActivity extends AppCompatActivity {
         clothing.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,
                 false));
 
+    }
+
+
+    public void onClickBusiness(View view) {
+        // TODO: send business through an intent to the BusinessPageActivity
+        // TODO: find the correct business from the view information (name or id or something)
+
+        // currently hardcoding to go to Sophie's soaps
+        Gson g = new Gson();
+        Business bus = businesses.get(1);
+        Intent intent = new Intent(this, BusinessPageActivity.class);
+        intent.putExtra(BUSINESS, g.toJson(bus));
+        // enum the source activity string later
+        intent.putExtra(BusinessPageActivity.SOURCE_ACTIVITY, "explore");
+        startActivity(intent);
     }
 
 

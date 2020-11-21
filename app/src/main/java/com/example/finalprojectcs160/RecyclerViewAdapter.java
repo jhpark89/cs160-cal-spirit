@@ -74,13 +74,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         holder.name.setText(mNames.get(position));
         holder.distance.setText(mDist.get(position));
-        holder.image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d(TAG, "onClick: clicked on an image: " + mNames.get(position));
-                Toast.makeText(mContext, mNames.get(position), Toast.LENGTH_SHORT).show();
-            }
-        });
+//        holder.image.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Log.d(TAG, "onClick: clicked on an image: " + mNames.get(position));
+//                Toast.makeText(mContext, mNames.get(position), Toast.LENGTH_SHORT).show();
+//
+//            }
+//        });
+
     }
 
     @Override
