@@ -197,6 +197,7 @@ public class ExploreActivity extends AppCompatActivity {
     }
 
     private void requestAddressFromLatLng(double lat, double lng) {
+        System.out.println("AAAA");
         String latlng = "?latlng=" + lat + "," + lng;
         String url =  GEO_URL + latlng + "&key=" + API_KEY;
 
@@ -233,7 +234,8 @@ public class ExploreActivity extends AppCompatActivity {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 getCurrentLocation();
             } else {
-                Toast.makeText(this, "Permission denied",  Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "Permission denied",  Toast.LENGTH_SHORT).show();
+                getCurrentLocation();
             }
         }
     }
