@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -54,6 +55,7 @@ public class ExploreActivity extends AppCompatActivity {
         createRecyclerViewClothing();
         createRecyclerViewBath();
         createRecyclerViewRestaurant();
+        getDistance();
     }
 
     private void createBottomNavigationBar() {
@@ -174,7 +176,12 @@ public class ExploreActivity extends AppCompatActivity {
     private double currLat;
     private double currLng;
 
+    public void onClickGetAddrTest(View view) {
+        getDistance();
+    }
+
     public String getDistance() {
+        System.out.println("Getting distance");
         if (ContextCompat.checkSelfPermission(
                 getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION
         ) != PackageManager.PERMISSION_GRANTED) {
@@ -205,6 +212,8 @@ public class ExploreActivity extends AppCompatActivity {
                         ArrayList<Object> results = (ArrayList<Object>) resMap.get("results");
                         Map<String, Object> result = g.fromJson(g.toJson(results.get(0)), Map.class);
                         String address = (String) result.get("formatted_address");
+                        TextView currAddrTest = findViewById(R.id.currAddrTest);
+                        currAddrTest.setText(address);
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -231,6 +240,7 @@ public class ExploreActivity extends AppCompatActivity {
 
     @SuppressLint("MissingPermission")
     private void getCurrentLocation() {
+        System.out.println("Made it here");
         LocationRequest locationRequest = new LocationRequest();
         locationRequest.setInterval(10000);
         locationRequest.setFastestInterval(3000);
@@ -256,9 +266,6 @@ public class ExploreActivity extends AppCompatActivity {
                 }, Looper.getMainLooper());
 
     }
-
-
-
 
 
 
