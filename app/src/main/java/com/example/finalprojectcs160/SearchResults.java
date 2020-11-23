@@ -2,8 +2,11 @@ package com.example.finalprojectcs160;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.reflect.TypeToken;
 
@@ -39,6 +42,32 @@ public class SearchResults extends AppCompatActivity {
             System.out.print(businesses.get(matching_ids.get(i)).getName());
             System.out.println("TEST");
         }
+        TextView num_shops = findViewById(R.id.num_shops);
+        if (matching_ids.size() < 2) {
 
+        }
+        createRecyclerViewResults(matching_ids);
+        System.out.println(R.drawable.business_stockimg_soap);
+    }
+    private void createRecyclerViewResults(List<Integer> ids) {
+        ArrayList<String> names = new ArrayList<>();
+        ArrayList<String> dist = new ArrayList<>();
+        ArrayList<String> images = new ArrayList<>();
+        ArrayList<Boolean> isURL = new ArrayList<>();
+        for (int i = 0; i < ids.size(); i++) {
+            String thumbnail = businesses.get(ids.get(i)).getImg();
+            String name = businesses.get(ids.get(i)).getName();
+            System.out.println("results " + name);
+            images.add(thumbnail);
+            names.add(name);
+            dist.add("100 miles");
+            isURL.add(false);
+        }
+
+        RecyclerView results = findViewById(R.id.recycler_search_res);
+        SearchRecyclerViewAdapter adapter = new SearchRecyclerViewAdapter(this, names, dist, images, isURL);
+        results.setAdapter(adapter);
+        results.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,
+                false));
     }
 }

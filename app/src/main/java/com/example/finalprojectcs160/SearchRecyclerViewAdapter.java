@@ -25,7 +25,7 @@ import java.util.ArrayList;
  * Created by User on 2/12/2018.
  */
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
+public class SearchRecyclerViewAdapter extends RecyclerView.Adapter<SearchRecyclerViewAdapter.ViewHolder> {
 
     private static final String TAG = "RecyclerViewAdapter";
 
@@ -36,7 +36,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ArrayList<Boolean> mIsUrl = new ArrayList<>();
     private Context mContext;
 
-    public RecyclerViewAdapter(Context context, ArrayList<String> names, ArrayList<String> dist, ArrayList<String> imageUrls, ArrayList<Boolean> isURL) {
+    public SearchRecyclerViewAdapter(Context context, ArrayList<String> names, ArrayList<String> dist, ArrayList<String> imageUrls, ArrayList<Boolean> isURL) {
         mNames = names;
         mDist = dist;
         mImageUrls = imageUrls;
@@ -44,7 +44,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         mContext = context;
     }
 
-    public RecyclerViewAdapter(Context context, ArrayList<String> names, ArrayList<String> dist, ArrayList<String> imageUrls) {
+    public SearchRecyclerViewAdapter(Context context, ArrayList<String> names, ArrayList<String> dist, ArrayList<String> imageUrls) {
         mNames = names;
         mDist = dist;
         mImageUrls = imageUrls;
@@ -54,7 +54,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.explore_recycler_view, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.search_results_recyclerview, parent, false);
         return new ViewHolder(view);
     }
 
@@ -78,10 +78,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             }
             System.out.println("TODO: need to set images from local resources");
         } else {
-        Glide.with(mContext).load(mImageUrls.get(position))
-                .apply(new RequestOptions().override(200, 200)).into(holder.image);
+            Glide.with(mContext).load(mImageUrls.get(position))
+                    .apply(new RequestOptions().override(200, 200)).into(holder.image);
         }
 
+
+        holder.image.bringToFront();
         holder.name.setText(mNames.get(position));
         holder.distance.setText(mDist.get(position));
 //        holder.image.setOnClickListener(new View.OnClickListener() {
@@ -108,9 +110,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         ConstraintLayout parent;
         public ViewHolder(View itemView) {
             super(itemView);
-            image = itemView.findViewById(R.id.explore_store_image);
-            name = itemView.findViewById(R.id.explore_store_name);
-            distance = itemView.findViewById(R.id.explore_store_dist);
+            image = itemView.findViewById(R.id.res_store_image);
+            name = itemView.findViewById(R.id.res_store_name);
+            distance = itemView.findViewById(R.id.res_store_dist);
             parent = itemView.findViewById(R.id.parent);
         }
     }
