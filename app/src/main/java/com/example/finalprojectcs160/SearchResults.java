@@ -47,7 +47,7 @@ public class SearchResults extends AppCompatActivity {
 
         }
         createRecyclerViewResults(matching_ids);
-        System.out.println(R.drawable.business_stockimg_soap);
+        System.out.println(R.drawable.business_stockimg_14karat);
     }
     private void createRecyclerViewResults(List<Integer> ids) {
         ArrayList<String> names = new ArrayList<>();
