@@ -56,11 +56,11 @@ public class SearchActivity extends AppCompatActivity {
 //                .apply(new RequestOptions().override(300, 300)).into(category_im_8);
 
         createBottomNavigationBar();
-        SearchView searchbar = findViewById(R.id.searchBar_search);
+        SearchView searchbar = findViewById(R.id.searchbar_search);
         searchbar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                Intent intent = new Intent(SearchActivity.this, SearchResults.class);
+                Intent intent = new Intent(SearchActivity.this, SearchResultsActivity.class);
                 intent.putExtra(query_string, query);
                 startActivity(intent);
                 return false;
@@ -103,7 +103,7 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SearchActivity.this, SearchCauses.class);
+                Intent intent = new Intent(SearchActivity.this, SearchCausesActivity.class);
                 startActivity(intent);
             }
         });
@@ -115,7 +115,7 @@ public class SearchActivity extends AppCompatActivity {
 //        inflater.inflate(R.menu.options_menu, menu);
 
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        SearchView searchView= (SearchView) menu.findItem(R.id.searchBar_search).getActionView();
+        SearchView searchView= (SearchView) menu.findItem(R.id.searchbar_explore).getActionView();
 
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
         searchView.setIconifiedByDefault(false);

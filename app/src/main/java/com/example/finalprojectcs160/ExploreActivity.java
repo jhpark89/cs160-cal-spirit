@@ -8,8 +8,8 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,7 +41,7 @@ public class ExploreActivity extends AppCompatActivity {
 
     private List<Business> businesses;
     public static final String BUSINESS = "com.example.prog01appv2.business";
-
+    public static final String query_string = "com.example.finalprojectcs160.SearchActivity.query_string";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +56,21 @@ public class ExploreActivity extends AppCompatActivity {
         createRecyclerViewBath();
         createRecyclerViewRestaurant();
         getDistance();
+        SearchView searchbar = findViewById(R.id.searchbar_explore);
+        searchbar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Intent intent = new Intent(ExploreActivity.this, SearchResultsActivity.class);
+                intent.putExtra(query_string, query);
+                startActivity(intent);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
     }
 
     private void createBottomNavigationBar() {
