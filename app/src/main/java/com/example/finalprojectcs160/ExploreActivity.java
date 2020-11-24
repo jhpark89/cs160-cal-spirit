@@ -175,12 +175,14 @@ public class ExploreActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_LOCATION_PERMISSION = 1;
     private double currLat;
     private double currLng;
+    private double businessLat;
+    private double businessLng;
 
     public void onClickGetAddrTest(View view) {
         getDistance();
     }
 
-    public String getDistance() {
+    public void getDistance() {
         System.out.println("Getting distance");
         if (ContextCompat.checkSelfPermission(
                 getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION
@@ -193,7 +195,66 @@ public class ExploreActivity extends AppCompatActivity {
         } else {
             getCurrentLocation();
         }
-        return "";
+        requestLatLngFromAddress("2530+ridge+rd,+berkeley+ca");
+    }
+
+    private double getDistanceFromLatLonInKm(double lat1, double lng1, double lat2, double lng2) {
+        System.out.println("**************************");
+        System.out.println(lat1);
+        System.out.println(lng1);
+        System.out.println(lat2);
+        System.out.println(lng2);
+        System.out.println("**************************");
+        double R = 3958.8; // Radius of the earth in km
+        double dLat = deg2rad(lat2-lat1);  // deg2rad below
+        double dLon = deg2rad(lng2-lng1);
+        double a =
+                Math.sin(dLat/2) * Math.sin(dLat/2) +
+                        Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+                                Math.sin(dLon/2) * Math.sin(dLon/2)
+                ;
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        double d = R * c; // Distance in km
+        return d;
+    }
+
+    private double deg2rad(double deg) {
+        return deg * (Math.PI/180.0);
+    }
+
+    private void requestLatLngFromAddress(String addr) {
+        String url = GEO_URL + "?address=" + addr + "&key=" + API_KEY;
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        System.out.println(url);
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Gson g = new Gson();
+                        Map<String, Object> resMap = g.fromJson(response, Map.class);
+                        System.out.println(resMap);
+                        ArrayList<Object> results = (ArrayList<Object>) resMap.get("results");
+                        Map<String, Object> result = g.fromJson(g.toJson(results.get(0)), Map.class);
+                        Map<String, Object> geometry = g.fromJson(g.toJson(result.get("geometry")), Map.class);
+                        Map<String, Double> location = g.fromJson(g.toJson(geometry.get("location")), Map.class);
+                        businessLat = location.get("lat");
+                        businessLng = location.get("lng");
+
+                        TextView currAddrTest = findViewById(R.id.currAddrTest);
+                        String test = "A neighborhood business is only " +
+                                (int) getDistanceFromLatLonInKm(currLat, currLng, businessLat, businessLng) +
+                                "miles away!";
+                        currAddrTest.setText(test);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println("That didn't work!");
+            }
+        });
+
+        queue.add(stringRequest);
     }
 
     private void requestAddressFromLatLng(double lat, double lng) {
@@ -213,8 +274,6 @@ public class ExploreActivity extends AppCompatActivity {
                         ArrayList<Object> results = (ArrayList<Object>) resMap.get("results");
                         Map<String, Object> result = g.fromJson(g.toJson(results.get(0)), Map.class);
                         String address = (String) result.get("formatted_address");
-                        TextView currAddrTest = findViewById(R.id.currAddrTest);
-                        currAddrTest.setText(address);
                     }
                 }, new Response.ErrorListener() {
             @Override
