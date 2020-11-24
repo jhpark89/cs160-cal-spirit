@@ -201,12 +201,6 @@ public class ExploreActivity extends AppCompatActivity {
     }
 
     private double getDistanceFromLatLonInKm(double lat1, double lng1, double lat2, double lng2) {
-        System.out.println("**************************");
-        System.out.println(lat1);
-        System.out.println(lng1);
-        System.out.println(lat2);
-        System.out.println(lng2);
-        System.out.println("**************************");
         double R = 3958.8; // Radius of the earth in km
         double dLat = deg2rad(lat2-lat1);  // deg2rad below
         double dLon = deg2rad(lng2-lng1);
@@ -300,8 +294,8 @@ public class ExploreActivity extends AppCompatActivity {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 getCurrentLocation();
             } else {
-//                Toast.makeText(this, "Permission denied",  Toast.LENGTH_SHORT).show();
-                getCurrentLocation();
+                Toast.makeText(this, "Permission denied",  Toast.LENGTH_SHORT).show();
+//                getCurrentLocation();
             }
         }
     }
