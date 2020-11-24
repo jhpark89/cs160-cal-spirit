@@ -120,6 +120,7 @@ public class SearchResultsActivity extends AppCompatActivity {
                     case R.id.botnav_explore:
                         startActivity(new Intent(getApplicationContext(), ExploreActivity.class));
                         overridePendingTransition(0, 0);
+                        return true;
                     case R.id.botnav_search:
                         startActivity(new Intent(getApplicationContext(), SearchActivity.class));
                         overridePendingTransition(0, 0);
