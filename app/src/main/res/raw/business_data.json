@@ -3,7 +3,7 @@
       "b_id" : 0,
       "name" : "14 Karat",
       "desc" : "Founded in 1988, 14 Karat is a neighborhood accessory store owned by a family of professional jewelers.",
-      "address" : "2010 Milvia Street, Berkeley, CA",
+      "address" : "2010+milvia+street,+berkeley+ca",
       "causes" : [
         true, true, true, true, true, true
       ],
@@ -15,7 +15,7 @@
       "b_id" : 1,
       "name" : "Sophie's Soaps",
       "desc" : "Sophie’s Soaps is a beauty shop dedicated to provide soaps and beauty products made with completely natural ingredients. ",
-      "address" : "2525 Durant Ave, Berkeley, CA",
+      "address" : "2525+durant+ave+berkeley+ca",
       "causes" : [
         true, true, true, true, true, true
       ],
@@ -27,7 +27,7 @@
       "b_id" : 2,
       "name" : "Test Business C",
       "desc" : "Founded in 1988. Note that causes could be in an array denoting truthiness.",
-      "address" : "123 Example Street",
+      "address" : "2530+ridge+rd,+berkeley+ca",
       "causes" : [
         true, true, true, true, true, true
       ],
@@ -39,7 +39,7 @@
       "b_id" : 3,
       "name" : "Test Business D",
       "desc" : "Founded in 1988. Note that causes could be in an array denoting truthiness.",
-      "address" : "123 Example Street",
+      "address" : "2530+ridge+rd,+berkeley+ca",
       "causes" : [
         true, true, true, true, true, true
       ],
@@ -52,7 +52,7 @@
       "b_id" : 4,
       "name" : "Test Business E",
       "desc" : "Founded in 1988. Note that causes could be in an array denoting truthiness.",
-      "address" : "123 Example Street",
+      "address" : "2530+ridge+rd,+berkeley+ca",
       "causes" : [
         true, true, true, true, true, true
       ],

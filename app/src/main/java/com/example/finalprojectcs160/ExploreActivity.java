@@ -93,10 +93,11 @@ public class ExploreActivity extends AppCompatActivity {
         for (int i = 0; i < 5; i++) {
             String thumbnail = businesses.get(0).getImg();
             String name = businesses.get(0).getName();
+            String address = businesses.get(0).getAddress();
 
             images.add(thumbnail);
             names.add(name);
-            dist.add("100 miles");
+            dist.add(requestLatLngFromAddress(address) + " miles");
             isURL.add(false);
         }
 
@@ -180,6 +181,7 @@ public class ExploreActivity extends AppCompatActivity {
 
     public void onClickGetAddrTest(View view) {
         getDistance();
+        requestLatLngFromAddress("2530+ridge+rd,+berkeley+ca");
     }
 
     public void getDistance() {
@@ -195,7 +197,7 @@ public class ExploreActivity extends AppCompatActivity {
         } else {
             getCurrentLocation();
         }
-        requestLatLngFromAddress("2530+ridge+rd,+berkeley+ca");
+
     }
 
     private double getDistanceFromLatLonInKm(double lat1, double lng1, double lat2, double lng2) {
@@ -222,9 +224,10 @@ public class ExploreActivity extends AppCompatActivity {
         return deg * (Math.PI/180.0);
     }
 
-    private void requestLatLngFromAddress(String addr) {
+    private int res = -1;
+    private int requestLatLngFromAddress(String addr) {
         String url = GEO_URL + "?address=" + addr + "&key=" + API_KEY;
-
+        res = -1;
         RequestQueue queue = Volley.newRequestQueue(this);
         System.out.println(url);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -242,10 +245,9 @@ public class ExploreActivity extends AppCompatActivity {
                         businessLng = location.get("lng");
 
                         TextView currAddrTest = findViewById(R.id.currAddrTest);
-                        String test = "A neighborhood business is only " +
-                                (int) getDistanceFromLatLonInKm(currLat, currLng, businessLat, businessLng) +
-                                "miles away!";
-                        currAddrTest.setText(test);
+                        res = (int) getDistanceFromLatLonInKm(currLat, currLng, businessLat, businessLng);
+                        String text = "A neighborhood business is only " + res + " miles away!";
+                        currAddrTest.setText(text);
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -255,6 +257,11 @@ public class ExploreActivity extends AppCompatActivity {
         });
 
         queue.add(stringRequest);
+
+//        while (res == -1) {
+//            ;
+//        }
+        return res;
     }
 
     private void requestAddressFromLatLng(double lat, double lng) {

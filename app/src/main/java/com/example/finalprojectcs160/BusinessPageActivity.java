@@ -25,7 +25,7 @@ public class BusinessPageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_business_page);
 
         Intent intent = getIntent();
-        intent.getStringExtra(SOURCE_ACTIVITY);
+        source_activity = intent.getStringExtra(SOURCE_ACTIVITY);
 
         Gson g = new Gson();
         business = g.fromJson(intent.getStringExtra(ExploreActivity.BUSINESS), Business.class);
