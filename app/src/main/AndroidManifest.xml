@@ -13,9 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".SearchResultsActivity"
+            android:label="@string/title_activity_search_results"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".SearchCausesActivity"
+            android:label="@string/title_activity_search_causes"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".BusinessPageActivity"
             android:label="@string/title_activity_business_page"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SearchResults"
             android:label="@string/title_activity_search_results"

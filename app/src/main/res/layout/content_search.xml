@@ -260,7 +260,7 @@
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchBar_search" />
+        app:layout_constraintTop_toBottomOf="@+id/searchbar_search" />
 
     <TextView
         android:id="@+id/causes_title"
@@ -272,7 +272,7 @@
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchBar_search" />
+        app:layout_constraintTop_toBottomOf="@+id/searchbar_search" />
 
     <ImageView
         android:id="@+id/imageView7"
@@ -283,7 +283,7 @@
         app:srcCompat="@drawable/orange_rect" />
 
     <SearchView
-        android:id="@+id/searchBar_search"
+        android:id="@+id/searchbar_search"
         android:layout_width="409dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
